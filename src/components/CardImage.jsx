@@ -13,13 +13,17 @@ const CardImage = ({ data }) => {
 	return (
 		<Grid>
 			<Card
-				sx={{ maxWidth: 200, maxHeight: 100, marginRight: 1, marginTop: 10 }}
+				sx={{
+					minWidth: 230,
+					maxHeight: 175,
+					marginRight: 1,
+				}}
 			>
 				<CardMedia
 					component='img'
 					alt=''
 					image={data}
-					height='20'
+					height='24'
 					onClick={linkToMovie}
 				></CardMedia>
 			</Card>
