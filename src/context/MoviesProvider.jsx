@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
-import trendingUrl from '../utils/trendingURL';
+import { trendingUrlAll, trendingUrlTv } from '../utils/trendingURL';
 
 const MoviesContext = createContext();
 
@@ -9,17 +9,30 @@ const MoviesProvider = ({ children }) => {
 	const [series, setSeries] = useState([]);
 	const [imagenes, setImagenes] = useState([]);
 	const [trending, setTrending] = useState({});
+	const [trendingTv, setTrendingTv] = useState({});
 
 	useEffect(() => {
 		const consultarTrending = async () => {
 			try {
-				const { data } = await axios(trendingUrl);
+				const { data } = await axios(trendingUrlAll);
+				data.results.type = 'Trending';
 				setTrending(data.results);
 			} catch (error) {
 				console.log(error);
 			}
 		};
 		consultarTrending();
+		const consultarTrendingTv = async () => {
+			try {
+				const { data } = await axios(trendingUrlTv);
+				data.results.type = 'Trending';
+				setTrendingTv(data.results);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+		consultarTrendingTv();
+		return console.log('Render');
 	}, []);
 
 	const consultarPeliculas = async data => {
@@ -52,6 +65,7 @@ const MoviesProvider = ({ children }) => {
 				consultarSeries,
 				consultarImagen,
 				trending,
+				trendingTv,
 			}}
 		>
 			{children}

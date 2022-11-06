@@ -2,23 +2,28 @@ import { Tabs } from '@mui/material';
 import baseUrlImages from '../utils/imagesURL';
 import CardImage from './CardImage';
 
-const CarouselCards = ({ data }) => {
+const Carousel = ({ data }) => {
+	const posters = Object.values(data).map(info => info.backdrop_path);
+	const title = data.type;
 	return (
-		<Tabs
-			className='py-10'
-			variant='scrollable'
-			scrollButtons
-			allowScrollButtonsMobile
-			aria-label='scrollable force tabs example'
-		>
-			{Object.values(data).map((poster, index) => {
-				return (
-					<CardImage data={baseUrlImages + poster} key={index}></CardImage>
-				);
-			})}
-		</Tabs>
+		<>
+			<div className='text-2xl font-bold pl-10 pb-2'>{title}</div>
+			<Tabs
+				value={0}
+				variant='scrollable'
+				scrollButtons
+				allowScrollButtonsMobile
+				aria-label='scrollable force tabs example'
+			>
+				{Object.values(posters).map((poster, index) => {
+					return (
+						<CardImage data={baseUrlImages + poster} key={index}></CardImage>
+					);
+				})}
+			</Tabs>
+		</>
 	);
 };
 
-export default CarouselCards;
+export default Carousel;
 

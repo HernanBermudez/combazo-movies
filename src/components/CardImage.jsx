@@ -1,4 +1,4 @@
-import { Grid, Card, CardMedia } from '@mui/material';
+import { Card, CardMedia } from '@mui/material';
 import React from 'react';
 import baseUrlImages from '../utils/imagesURL';
 
@@ -11,23 +11,15 @@ const CardImage = ({ data }) => {
 		);
 	};
 	return (
-		<Grid>
-			<Card
-				sx={{
-					minWidth: 230,
-					maxHeight: 175,
-					marginRight: 1,
-				}}
-			>
-				<CardMedia
-					component='img'
-					alt=''
-					image={data}
-					height='24'
-					onClick={linkToMovie}
-				></CardMedia>
-			</Card>
-		</Grid>
+		<Card className='flex-shrink min-w-[230px] mr-1'>
+			<CardMedia
+				component='img'
+				alt=''
+				image={data}
+				height='24'
+				onClick={linkToMovie}
+			></CardMedia>
+		</Card>
 	);
 };
 
