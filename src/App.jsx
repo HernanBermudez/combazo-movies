@@ -2,7 +2,7 @@ import { MoviesProvider } from './context/MoviesProvider';
 import Home from './pages/Home';
 import Login from './pages/Login';
 
-function App() {
+const App = () => {
 	return (
 		<MoviesProvider>
 			<header className='py-10 items-center'>
@@ -11,7 +11,7 @@ function App() {
 			<Home />
 		</MoviesProvider>
 	);
-}
+};
 
 export default App;
 
