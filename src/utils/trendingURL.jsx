@@ -9,7 +9,7 @@ const trendingUrlAll = `https://api.themoviedb.org/3/trending/all/day?api_key=${
 	import.meta.env.VITE_API_KEY
 }`;
 
-const trendingUrlTv = `https://api.themoviedb.org/3/trending/movie/day?api_key=${
+const trendingUrlTv = `https://api.themoviedb.org/3/trending/tv/day?api_key=${
 	import.meta.env.VITE_API_KEY
 }`;
 

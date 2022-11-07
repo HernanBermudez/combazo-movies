@@ -4,12 +4,11 @@ import Login from './pages/Login';
 
 const App = () => {
 	return (
-		<MoviesProvider>
-			<header className='py-10 items-center'>
-				<h1>NETFLIX</h1>
-			</header>
-			<Home />
-		</MoviesProvider>
+		<div className='bg-[rgb(20,20,20)] text-white'>
+			<MoviesProvider>
+				<Home />
+			</MoviesProvider>
+		</div>
 	);
 };
 

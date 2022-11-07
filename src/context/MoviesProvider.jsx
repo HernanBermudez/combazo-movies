@@ -25,7 +25,7 @@ const MoviesProvider = ({ children }) => {
 		const consultarTrendingTv = async () => {
 			try {
 				const { data } = await axios(trendingUrlTv);
-				data.results.type = 'Trending';
+				data.results.type = 'Series';
 				setTrendingTv(data.results);
 			} catch (error) {
 				console.log(error);

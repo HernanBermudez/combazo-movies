@@ -1,11 +1,12 @@
 import Carousel from '../components/Carousel';
+import NavBar from '../components/NavBar';
 import useMovies from '../hooks/useMovies';
 
 const Home = () => {
 	const { trending, trendingTv } = useMovies();
 	return (
 		<>
-			<div className='text-4xl'>Home desde componente</div>
+			<NavBar />
 			<Carousel data={trending} />
 			<Carousel data={trendingTv} />
 		</>

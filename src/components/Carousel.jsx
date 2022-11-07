@@ -7,7 +7,7 @@ const Carousel = ({ data }) => {
 	const title = data.type;
 	return (
 		<>
-			<div className='text-2xl font-bold pl-10 pb-2'>{title}</div>
+			<div className='text-xl font-semibold pl-10 pb-2 pt-10'>{title}</div>
 			<Tabs
 				value={0}
 				variant='scrollable'
