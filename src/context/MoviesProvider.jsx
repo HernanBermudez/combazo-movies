@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
-import { trendingUrlAll, trendingUrlTv } from '../utils/trendingURL';
+import getTrendingAll from '../services/getTrendingAll';
+import getTrendingMovies from '../services/getTrendingMovies';
+import getTrendingSeries from '../services/getTrendingSeries';
 
 const MoviesContext = createContext();
 
@@ -8,30 +10,23 @@ const MoviesProvider = ({ children }) => {
 	const [peliculas, setPeliculas] = useState([]);
 	const [series, setSeries] = useState([]);
 	const [imagenes, setImagenes] = useState([]);
-	const [trending, setTrending] = useState({});
-	const [trendingTv, setTrendingTv] = useState({});
+	const [trendingMovies, setTrendingMovies] = useState({});
+	const [trendingSeries, setTrendingSeries] = useState({});
+	const [trendingAll, setTrendingAll] = useState({});
 
 	useEffect(() => {
-		const consultarTrending = async () => {
-			try {
-				const { data } = await axios(trendingUrlAll);
-				data.results.type = 'Trending';
-				setTrending(data.results);
-			} catch (error) {
-				console.log(error);
-			}
-		};
-		consultarTrending();
-		const consultarTrendingTv = async () => {
-			try {
-				const { data } = await axios(trendingUrlTv);
-				data.results.type = 'Series';
-				setTrendingTv(data.results);
-			} catch (error) {
-				console.log(error);
-			}
-		};
-		consultarTrendingTv();
+		getTrendingMovies()
+			.then(data => setTrendingMovies(data))
+			.catch(error => console.log(error));
+
+		getTrendingSeries()
+			.then(data => setTrendingSeries(data))
+			.catch(error => console.log(error));
+
+		getTrendingAll()
+			.then(data => setTrendingAll(data))
+			.catch(error => console.log(error));
+
 		return console.log('Render');
 	}, []);
 
@@ -61,11 +56,9 @@ const MoviesProvider = ({ children }) => {
 	return (
 		<MoviesContext.Provider
 			value={{
-				consultarPeliculas,
-				consultarSeries,
-				consultarImagen,
-				trending,
-				trendingTv,
+				trendingMovies,
+				trendingSeries,
+				trendingAll,
 			}}
 		>
 			{children}

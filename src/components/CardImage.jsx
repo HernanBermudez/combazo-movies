@@ -1,11 +1,11 @@
 import { Card, CardMedia } from '@mui/material';
 import React from 'react';
-import baseUrlImages from '../utils/imagesURL';
+import TMDB from '../config/TMDB';
 
 const CardImage = ({ data }) => {
 	const linkToMovie = () => {
 		window.open(
-			baseUrlImages.toString() + data.toString(),
+			TMDB.images.base_url.toString() + data.toString(),
 			'_blank',
 			'noopener,noreferrer'
 		);

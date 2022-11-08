@@ -1,9 +1,10 @@
 import { Tabs } from '@mui/material';
-import baseUrlImages from '../utils/imagesURL';
+import TMDB from '../config/TMDB';
 import CardImage from './CardImage';
 
 const Carousel = ({ data }) => {
 	const posters = Object.values(data).map(info => info.backdrop_path);
+	posters.pop();
 	const title = data.type;
 	return (
 		<>
@@ -17,7 +18,10 @@ const Carousel = ({ data }) => {
 			>
 				{Object.values(posters).map((poster, index) => {
 					return (
-						<CardImage data={baseUrlImages + poster} key={index}></CardImage>
+						<CardImage
+							data={TMDB.images.base_url + TMDB.images.backdrop.w300 + poster}
+							key={index}
+						></CardImage>
 					);
 				})}
 			</Tabs>
