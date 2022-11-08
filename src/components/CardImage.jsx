@@ -11,7 +11,7 @@ const CardImage = ({ data }) => {
 		);
 	};
 	return (
-		<Card className='flex-shrink min-w-[230px] mr-1'>
+		<Card sx={{ display: 'flex-shrink', minWidth: '230px', marginRight: 1 }}>
 			<CardMedia
 				component='img'
 				alt=''
