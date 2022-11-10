@@ -1,4 +1,3 @@
-import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,6 +12,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import SearchBar from './SearchBar';
+import { useState } from 'react';
 
 const pages = [
 	'Inicio',
@@ -31,8 +31,9 @@ const settings = [
 ];
 
 const ResponsiveAppBar = () => {
-	const [anchorElNav, setAnchorElNav] = React.useState(null);
-	const [anchorElUser, setAnchorElUser] = React.useState(null);
+	const [anchorElNav, setAnchorElNav] = useState(null);
+	const [anchorElUser, setAnchorElUser] = useState(null);
+	const [backgroundColor, setBackgroundColor] = useState('');
 
 	const handleOpenNavMenu = event => {
 		setAnchorElNav(event.currentTarget);
@@ -49,8 +50,21 @@ const ResponsiveAppBar = () => {
 		setAnchorElUser(null);
 	};
 
+	window.addEventListener('scroll', () => {
+		if (window.scrollY < 100) {
+			setBackgroundColor('transparent');
+		} else {
+			setBackgroundColor('inherit');
+		}
+	});
+
 	return (
-		<AppBar position='sticky' sx={{ backgroundColor: 'inherit' }}>
+		<AppBar
+			className=''
+			position='absolute'
+			sx={{ backgroundColor: backgroundColor }}
+			//onScroll={handleScrollBackgroundColor}
+		>
 			<Container maxWidth='xl'>
 				<Toolbar disableGutters>
 					<Typography
