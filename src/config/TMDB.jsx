@@ -26,11 +26,14 @@ const TMDB = {
 			popular: '/movie/popular',
 			top_rated: '/movie/top_rated',
 			latest: '/movie/latest',
+			nowPlaying: '/movie/now_playing',
+			upcoming: '/movie/upcoming',
 		},
 		series: {
 			popular: '/tv/popular',
 			top_rated: '/tv/top_rated',
 			latest: '/tv/latest',
+			on_air: '/tv/on_the_air',
 		},
 	},
 	images: {
