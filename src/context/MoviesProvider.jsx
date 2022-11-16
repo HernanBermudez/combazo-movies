@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
 import getNowPlaying from '../services/getNowPlaying';
 import getOnAir from '../services/getOnTheAir';
@@ -14,9 +13,6 @@ import getUpcoming from '../services/getUpcoming';
 const MoviesContext = createContext();
 
 const MoviesProvider = ({ children }) => {
-	const [peliculas, setPeliculas] = useState([]);
-	const [series, setSeries] = useState([]);
-	const [imagenes, setImagenes] = useState([]);
 	const [trendingMovies, setTrendingMovies] = useState({});
 	const [trendingSeries, setTrendingSeries] = useState({});
 	const [trendingAll, setTrendingAll] = useState({});
@@ -71,29 +67,6 @@ const MoviesProvider = ({ children }) => {
 
 		return console.log('Render');
 	}, []);
-
-	const consultarPeliculas = async data => {
-		try {
-			const urlPeliculas = ``;
-		} catch (error) {
-			console.log(error);
-		}
-	};
-	const consultarSeries = () => {
-		try {
-			const urlSeries = ``;
-		} catch (error) {
-			console.log(error);
-		}
-	};
-
-	const consultarImagen = async data => {
-		try {
-			setImagenes(await axios(baseUrlImage + data.poster_path));
-		} catch (error) {
-			console.log(error);
-		}
-	};
 
 	return (
 		<MoviesContext.Provider
