@@ -35,6 +35,7 @@ const TMDB = {
 			latest: '/tv/latest',
 			on_air: '/tv/on_the_air',
 		},
+		search: '/search/multi',
 	},
 	images: {
 		base_url: 'https://image.tmdb.org/t/p',
