@@ -30,7 +30,7 @@ const settings = [
 	'Cerrar sesión en Netflix',
 ];
 
-const ResponsiveAppBar = () => {
+const NavBar = data => {
 	const [anchorElNav, setAnchorElNav] = useState(null);
 	const [anchorElUser, setAnchorElUser] = useState(null);
 	const [backgroundColor, setBackgroundColor] = useState('');
@@ -51,7 +51,7 @@ const ResponsiveAppBar = () => {
 	};
 
 	window.addEventListener('scroll', () => {
-		if (window.scrollY < 100) {
+		if (window.scrollY < 10) {
 			setBackgroundColor('transparent');
 		} else {
 			setBackgroundColor('inherit');
@@ -60,8 +60,8 @@ const ResponsiveAppBar = () => {
 
 	return (
 		<AppBar
-			className=''
-			position='absolute'
+			class
+			position='sticky'
 			sx={{ backgroundColor: backgroundColor }}
 			//onScroll={handleScrollBackgroundColor}
 		>
@@ -153,7 +153,7 @@ const ResponsiveAppBar = () => {
 							</Button>
 						))}
 					</Box>
-					<SearchBar />
+					<SearchBar data={data} />
 					<Box sx={{ flexGrow: 0 }}>
 						<Tooltip title='Open settings'>
 							<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -188,5 +188,5 @@ const ResponsiveAppBar = () => {
 		</AppBar>
 	);
 };
-export default ResponsiveAppBar;
+export default NavBar;
 
