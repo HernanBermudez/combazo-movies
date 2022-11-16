@@ -17,6 +17,7 @@ const Home = () => {
 		topRatedSeries,
 		onAir,
 	} = useMovies();
+
 	return (
 		<>
 			<NavBar />
