@@ -34,6 +34,7 @@ const TMDB = {
 			top_rated: '/tv/top_rated',
 			latest: '/tv/latest',
 			on_air: '/tv/on_the_air',
+			on_air_today: '/tv/airing_today',
 		},
 		search: '/search/multi',
 	},
