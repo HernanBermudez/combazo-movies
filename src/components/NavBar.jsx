@@ -10,7 +10,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import SearchBar from './SearchBar';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -19,7 +18,7 @@ import { pages, routes, settings } from '../helpers/constants';
 const NavBar = data => {
 	const [anchorElNav, setAnchorElNav] = useState(null);
 	const [anchorElUser, setAnchorElUser] = useState(null);
-	const [backgroundColor, setBackgroundColor] = useState('');
+	const [backgroundColor, setBackgroundColor] = useState('transparent');
 
 	const handleOpenNavMenu = event => {
 		setAnchorElNav(event.currentTarget);
@@ -46,9 +45,8 @@ const NavBar = data => {
 
 	return (
 		<AppBar
-			class
-			position='sticky'
 			sx={{ backgroundColor: backgroundColor }}
+			position='sticky'
 			//onScroll={handleScrollBackgroundColor}
 		>
 			<Container maxWidth='xl'>
@@ -104,32 +102,11 @@ const NavBar = data => {
 						>
 							{pages.map((page, index) => (
 								<MenuItem key={page} onClick={handleCloseNavMenu}>
-									<Link to={routes[index]} textAlign='center'>
-										{page}
-									</Link>
+									<Link to={routes[index]}>{page}</Link>
 								</MenuItem>
 							))}
 						</Menu>
 					</Box>
-					<AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-					<Typography
-						variant='h5'
-						noWrap
-						component='a'
-						href=''
-						sx={{
-							mr: 2,
-							display: { xs: 'flex', md: 'none' },
-							flexGrow: 1,
-							fontFamily: 'monospace',
-							fontWeight: 700,
-							letterSpacing: '.3rem',
-							color: 'inherit',
-							textDecoration: 'none',
-						}}
-					>
-						LOGO
-					</Typography>
 					<Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 						{pages.map((page, index) => (
 							<Button
@@ -137,9 +114,7 @@ const NavBar = data => {
 								onClick={handleCloseNavMenu}
 								sx={{ my: 2, color: 'white', display: 'block' }}
 							>
-								<Link to={routes[index]} textAlign='center'>
-									{page}
-								</Link>
+								<Link to={routes[index]}>{page}</Link>
 							</Button>
 						))}
 					</Box>
