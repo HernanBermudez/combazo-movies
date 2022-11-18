@@ -13,22 +13,8 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import SearchBar from './SearchBar';
 import { useState } from 'react';
-
-const pages = [
-	'Inicio',
-	'Series',
-	'Peliculas',
-	'Novedades populares',
-	'Mi lista',
-	'Explora por idiomas',
-];
-const settings = [
-	'Administrar perfil',
-	'Transferir perfil',
-	'Cuenta',
-	'Centro de ayuda',
-	'Cerrar sesión en Netflix',
-];
+import { Link } from 'react-router-dom';
+import { pages, routes, settings } from '../helpers/constants';
 
 const NavBar = data => {
 	const [anchorElNav, setAnchorElNav] = useState(null);
@@ -116,9 +102,11 @@ const NavBar = data => {
 								display: { xs: 'block', md: 'none' },
 							}}
 						>
-							{pages.map(page => (
+							{pages.map((page, index) => (
 								<MenuItem key={page} onClick={handleCloseNavMenu}>
-									<Typography textAlign='center'>{page}</Typography>
+									<Link to={routes[index]} textAlign='center'>
+										{page}
+									</Link>
 								</MenuItem>
 							))}
 						</Menu>
@@ -143,13 +131,15 @@ const NavBar = data => {
 						LOGO
 					</Typography>
 					<Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-						{pages.map(page => (
+						{pages.map((page, index) => (
 							<Button
 								key={page}
 								onClick={handleCloseNavMenu}
 								sx={{ my: 2, color: 'white', display: 'block' }}
 							>
-								{page}
+								<Link to={routes[index]} textAlign='center'>
+									{page}
+								</Link>
 							</Button>
 						))}
 					</Box>
