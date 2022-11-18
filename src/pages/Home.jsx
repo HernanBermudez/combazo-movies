@@ -1,10 +1,12 @@
+import { useEffect } from 'react';
 import Banner from '../components/Banner';
 import Carousel from '../components/Carousel';
-import Footer from '../components/Footer';
-import NavBar from '../components/NavBar';
 import useMovies from '../hooks/useMovies';
 
 const Home = () => {
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 	const {
 		trendingMovies,
 		trendingSeries,
@@ -20,7 +22,6 @@ const Home = () => {
 
 	return (
 		<>
-			{/* <NavBar /> */}
 			<Banner />
 			<Carousel data={trendingAll} />
 			<Carousel data={trendingSeries} />

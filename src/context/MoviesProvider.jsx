@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
 import getNowPlaying from '../services/getNowPlaying';
-import getOnAir from '../services/getOnTheAir';
+import getOnAirToday from '../services/getOnAirToday';
+import getOnAir from '../services/getOnAir';
 import getPopularMovies from '../services/getPopularMovies';
 import getPopularSeries from '../services/getPopularSeries';
 import getTopRatedMovies from '../services/getTopRatedMovies';
@@ -23,6 +24,7 @@ const MoviesProvider = ({ children }) => {
 	const [popularMovies, setPopularMovies] = useState({});
 	const [popularSeries, setPopularSeries] = useState({});
 	const [onAir, setOnAir] = useState({});
+	const [onAirToday, setOnAirToday] = useState({});
 
 	useEffect(() => {
 		getTrendingMovies()
@@ -65,7 +67,9 @@ const MoviesProvider = ({ children }) => {
 			.then(data => setOnAir(data))
 			.catch(error => console.log(error));
 
-		return console.log('Render');
+		getOnAirToday()
+			.then(data => setOnAirToday(data))
+			.catch(error => console.log(error));
 	}, []);
 
 	return (
@@ -81,6 +85,7 @@ const MoviesProvider = ({ children }) => {
 				topRatedMovies,
 				topRatedSeries,
 				onAir,
+				onAirToday,
 			}}
 		>
 			{children}
