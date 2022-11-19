@@ -1,4 +1,4 @@
-import { Tabs } from '@mui/material';
+import { Grid, Tabs } from '@mui/material';
 import TMDB from '../config/TMDB';
 import CardImage from './CardImage';
 
@@ -9,12 +9,16 @@ const Carousel = ({ data }) => {
 	return (
 		<>
 			<div className='text-xl font-semibold pl-10 pb-2 pt-10'>{title}</div>
+			{/* <Grid
+				container
+				className='w-full flex space-x-5 overflow-x-scroll p-10 pt-48 snap-x snap-mandatory'
+			> */}
 			<Tabs
 				value={0}
 				variant='scrollable'
 				scrollButtons
 				allowScrollButtonsMobile
-				aria-label='scrollable force tabs example'
+				//aria-label='scrollable force tabs example'
 			>
 				{Object.values(posters).map((poster, index) => {
 					return (
@@ -25,6 +29,7 @@ const Carousel = ({ data }) => {
 					);
 				})}
 			</Tabs>
+			{/* </Grid> */}
 		</>
 	);
 };

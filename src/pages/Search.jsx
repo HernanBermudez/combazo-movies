@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import Carousel from '../components/Carousel';
 import useMovies from '../hooks/useMovies';
 
 const Search = () => {
@@ -6,7 +7,8 @@ const Search = () => {
 		window.scrollTo(0, 0);
 	}, []);
 	const { search } = useMovies();
-	return <div>Search page</div>;
+
+	return <Carousel data={search} />;
 };
 
 export default Search;

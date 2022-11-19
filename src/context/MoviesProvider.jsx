@@ -26,6 +26,8 @@ const MoviesProvider = ({ children }) => {
 	const [onAir, setOnAir] = useState({});
 	const [onAirToday, setOnAirToday] = useState({});
 
+	const [search, setSearch] = useState({});
+
 	useEffect(() => {
 		getTrendingMovies()
 			.then(data => setTrendingMovies(data))
@@ -86,6 +88,7 @@ const MoviesProvider = ({ children }) => {
 				topRatedSeries,
 				onAir,
 				onAirToday,
+				setSearch,
 			}}
 		>
 			{children}

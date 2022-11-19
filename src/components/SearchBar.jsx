@@ -1,8 +1,8 @@
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import { useState } from 'react';
-import searchContent from '../services/searchContent';
+import useMovies from '../hooks/useMovies';
+import { useNavigate } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
 	position: 'relative',
@@ -14,7 +14,7 @@ const Search = styled('div')(({ theme }) => ({
 	marginLeft: 0,
 	marginRight: 20,
 	width: '100%',
-	[theme.breakpoints.up('sm')]: {
+	[theme.breakpoints.down('xl')]: {
 		marginLeft: theme.spacing(1),
 		width: 'auto',
 	},
@@ -38,7 +38,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 		paddingLeft: `calc(1em + ${theme.spacing(4)})`,
 		transition: theme.transitions.create('width'),
 		width: '100%',
-		[theme.breakpoints.up('sm')]: {
+		[theme.breakpoints.down('xl')]: {
 			width: '0.5px',
 			'&:focus': {
 				width: '20ch',
@@ -48,25 +48,25 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const SearchBar = () => {
-	const [search, setSearch] = useState({});
+	const { setSearch } = useMovies();
+	const navigate = useNavigate();
 
 	const handleSearch = event => {
 		setTimeout(() => {
 			setSearch(event.target.value);
-			const datos = searchContent(search);
-			console.log(datos);
-		}, 2000);
+			// const datos = searchContent(search);
+			// console.log(datos);
+			navigate(`/search/${event.target.value}`);
+		}, 3000);
 	};
-
 	return (
 		<Search>
 			<SearchIconWrapper>
 				<SearchIcon />
 			</SearchIconWrapper>
 			<StyledInputBase
-				// className='border'
-				placeholder='Titles, people, genres'
 				inputProps={{ 'aria-label': 'search' }}
+				placeholder='Titles, people, genres'
 				onChange={handleSearch}
 			/>
 		</Search>
