@@ -28,8 +28,8 @@ const Home = () => {
 			<Carousel data={trendingMovies} />
 			<Carousel data={nowPlaying} />
 			<Carousel data={upcoming} />
-			<Carousel data={popularMovies} />
 			<Carousel data={popularSeries} />
+			<Carousel data={popularMovies} />
 			<Carousel data={topRatedMovies} />
 			<Carousel data={topRatedSeries} />
 			<Carousel data={onAir} />
