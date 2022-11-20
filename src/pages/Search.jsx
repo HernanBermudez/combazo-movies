@@ -8,7 +8,12 @@ const Search = () => {
 	}, []);
 	const { search } = useMovies();
 
-	return <Carousel data={search} />;
+	return (
+		<>
+			<div className='ml-20 mt-20'>Explore titles related to: </div>
+			{search ? <Carousel data={search} search={search} /> : 'Error'}
+		</>
+	);
 };
 
 export default Search;

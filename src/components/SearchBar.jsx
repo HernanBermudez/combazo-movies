@@ -2,6 +2,7 @@ import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import useMovies from '../hooks/useMovies';
+import searchContent from '../services/searchContent';
 import { useNavigate } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
@@ -50,15 +51,17 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const SearchBar = () => {
 	const { setSearch } = useMovies();
 	const navigate = useNavigate();
-
-	const handleSearch = event => {
+	const handleSearch = searchRequest => {
 		setTimeout(() => {
-			setSearch(event.target.value);
-			// const datos = searchContent(search);
-			// console.log(datos);
-			navigate(`/search/${event.target.value}`);
+			searchContent(searchRequest.target.value)
+				.then(data => setSearch(data))
+				.catch(error => console.log(error));
+			navigate(`/search/${searchRequest.target.value}`);
 		}, 3000);
+
+		return searchRequest;
 	};
+
 	return (
 		<Search>
 			<SearchIconWrapper>
@@ -66,7 +69,7 @@ const SearchBar = () => {
 			</SearchIconWrapper>
 			<StyledInputBase
 				inputProps={{ 'aria-label': 'search' }}
-				placeholder='Titles, people, genres'
+				placeholder='  Titles, people, genres'
 				onChange={handleSearch}
 			/>
 		</Search>
