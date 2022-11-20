@@ -88,6 +88,7 @@ const MoviesProvider = ({ children }) => {
 				topRatedSeries,
 				onAir,
 				onAirToday,
+				search,
 				setSearch,
 			}}
 		>
