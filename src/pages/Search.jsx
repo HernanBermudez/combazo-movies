@@ -10,7 +10,19 @@ const Search = () => {
 
 	return (
 		<>
-			<div className='ml-20 mt-20'>Explore titles related to: </div>
+			<div className='ml-20 mt-20 font-light'>
+				<p className='opacity-40 whitespace-nowrap'>
+					Explore titles related to:
+				</p>
+				{Object.values(search).map(data => {
+					return (
+						<p className='inline-block text-start'>
+							{data.name || data.original_title} |
+						</p>
+					);
+				})}
+			</div>
+
 			{search ? <Carousel data={search} search={search} /> : 'Error'}
 		</>
 	);
