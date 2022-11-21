@@ -23,6 +23,7 @@ const TMDB = {
 			trending_person_week: '/trending/person/week',
 		},
 		movies: {
+			default: '/movie/',
 			popular: '/movie/popular',
 			top_rated: '/movie/top_rated',
 			latest: '/movie/latest',
@@ -30,12 +31,14 @@ const TMDB = {
 			upcoming: '/movie/upcoming',
 		},
 		series: {
+			default: '/tv/',
 			popular: '/tv/popular',
 			top_rated: '/tv/top_rated',
 			latest: '/tv/latest',
 			on_air: '/tv/on_the_air',
 			on_air_today: '/tv/airing_today',
 		},
+		videos: '/videos',
 		search: '/search/multi',
 	},
 	images: {
