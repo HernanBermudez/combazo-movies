@@ -1,13 +1,11 @@
 import { Card, CardMedia } from '@mui/material';
-import React from 'react';
-
-const Banner = () => {
+const Banner = ({ data }) => {
 	return (
 		<Card sx={{ position: 'static', minWidth: 'full' }}>
 			<CardMedia
 				component='iframe'
-				src='https://www.youtube.com/embed/d9MyW72ELq0?autoplay=1&controls=0&modestbranding=1&showinfo=0&end=60&rel=0'
-				title='Wonderwoman Trailer'
+				src={data[Math.floor(Math.random() * data.length)]}
+				title='Trailer'
 				height={600}
 			/>
 		</Card>
