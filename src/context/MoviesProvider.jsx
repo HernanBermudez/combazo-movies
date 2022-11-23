@@ -10,6 +10,7 @@ import getTrendingAll from '../services/getTrendingAll';
 import getTrendingMovies from '../services/getTrendingMovies';
 import getTrendingSeries from '../services/getTrendingSeries';
 import getUpcoming from '../services/getUpcoming';
+import getTrailers from '../services/getTrailers';
 
 const MoviesContext = createContext();
 
@@ -25,6 +26,9 @@ const MoviesProvider = ({ children }) => {
 	const [popularSeries, setPopularSeries] = useState({});
 	const [onAir, setOnAir] = useState({});
 	const [onAirToday, setOnAirToday] = useState({});
+	const [trailers, setTrailers] = useState([]);
+	const [trailersSeries, setTrailersSeries] = useState([]);
+	const [trailersMovies, setTrailersMovies] = useState([]);
 
 	const [search, setSearch] = useState({});
 
@@ -72,6 +76,20 @@ const MoviesProvider = ({ children }) => {
 		getOnAirToday()
 			.then(data => setOnAirToday(data))
 			.catch(error => console.log(error));
+
+		setTimeout(() => {
+			getTrailers(trendingAll)
+				.then(data => setTrailers(data))
+				.catch(error => console.log(error));
+
+			getTrailers(popularMovies)
+				.then(data => setTrailersMovies(data))
+				.catch(error => console.log(error));
+
+			getTrailers(popularSeries)
+				.then(data => setTrailersSeries(data))
+				.catch(error => console.log(error));
+		}, 3000);
 	}, []);
 
 	return (
@@ -90,6 +108,9 @@ const MoviesProvider = ({ children }) => {
 				onAirToday,
 				search,
 				setSearch,
+				trailers,
+				trailersMovies,
+				trailersSeries,
 			}}
 		>
 			{children}
