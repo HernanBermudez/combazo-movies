@@ -7,7 +7,7 @@ const TMDB = {
 		timeoutErrorMessage: 'Timeout! Could not retrieve movies from API',
 		params: {
 			api_key: import.meta.env.VITE_API_KEY,
-			language: 'es-ES',
+			language: 'en-US',
 			page: 1,
 		},
 	}),
