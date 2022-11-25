@@ -25,6 +25,7 @@ const App = () => {
 							<Route path='/my-list' element={<MyList />} />
 							<Route path='/original-audio' element={<ExploreByLanguage />} />
 							<Route path='/search/:content' element={<Search />} />
+							<Route path='/search/' element={<Search />} />
 						</Route>
 					</Routes>
 				</BrowserRouter>
