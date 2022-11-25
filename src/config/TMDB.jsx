@@ -52,7 +52,7 @@ const TMDB = {
 			w700: '/w700',
 			original: '/original',
 		},
-		backdrop: {
+		poster: {
 			w300: '/w300',
 			w700: '/w700',
 			w1280: '/w1280',
