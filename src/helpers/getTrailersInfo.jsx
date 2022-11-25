@@ -13,7 +13,12 @@ const getTrailersInfo = async (ids, type) => {
 						.then(response => response.data.results)
 						.then(results =>
 							results.map(key => {
-								trailersInfoId.push(key.key);
+								if (
+									(key.type == 'Teaser' || key.type == 'Trailer') &&
+									key.site == 'YouTube'
+								) {
+									trailersInfoId.push(key.key);
+								}
 								return trailersInfoId;
 							})
 						)
@@ -36,7 +41,12 @@ const getTrailersInfo = async (ids, type) => {
 						.then(response => response.data.results)
 						.then(results =>
 							results.map(key => {
-								trailersInfoId.push(key.key);
+								if (
+									(key.type == 'Teaser' || key.type == 'Trailer') &&
+									key.site == 'YouTube'
+								) {
+									trailersInfoId.push(key.key);
+								}
 								return trailersInfoId;
 							})
 						)
