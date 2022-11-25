@@ -1,9 +1,11 @@
 import TMDB from '../config/TMDB';
 
 const getPopularMovies = async () => {
-	const { data } = await TMDB.api.get(TMDB.paths.movies.popular);
-	data.results.type = 'Popular movies';
-	return data.results;
+	const {
+		data: { results },
+	} = await TMDB.api.get(TMDB.paths.movies.popular);
+	results.type = 'Popular movies';
+	return results;
 };
 
 export default getPopularMovies;

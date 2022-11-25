@@ -1,9 +1,11 @@
 import TMDB from '../config/TMDB';
 
 const getTopRatedSeries = async () => {
-	const { data } = await TMDB.api.get(TMDB.paths.series.top_rated);
-	data.results.type = 'Top Rated Series';
-	return data.results;
+	const {
+		data: { results },
+	} = await TMDB.api.get(TMDB.paths.series.top_rated);
+	results.type = 'Top Rated Series';
+	return results;
 };
 
 export default getTopRatedSeries;

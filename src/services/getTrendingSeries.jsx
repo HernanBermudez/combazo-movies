@@ -1,9 +1,11 @@
 import TMDB from '../config/TMDB';
 
 const getTrendingSeries = async () => {
-	const { data } = await TMDB.api.get(TMDB.paths.trending.trending_tv_week);
-	data.results.type = 'Series';
-	return data.results;
+	const {
+		data: { results },
+	} = await TMDB.api.get(TMDB.paths.trending.trending_tv_week);
+	results.type = 'Series';
+	return results;
 };
 
 export default getTrendingSeries;
