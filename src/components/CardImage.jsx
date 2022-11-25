@@ -15,7 +15,6 @@ const CardImage = ({ data }) => {
 				component='img'
 				alt=''
 				image={data}
-				height='24'
 				onClick={linkToMovie}
 			></CardMedia>
 		</Card>
