@@ -13,6 +13,7 @@ const routes = [
 	'/latest',
 	'my-list',
 	'original-audio',
+	'search/',
 ];
 
 const settings = [
