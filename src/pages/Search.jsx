@@ -6,7 +6,7 @@ const Search = () => {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
-	const { search, trendingAll } = useMovies();
+	const { search } = useMovies();
 
 	return (
 		<>
