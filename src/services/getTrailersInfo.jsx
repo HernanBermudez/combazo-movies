@@ -22,7 +22,6 @@ const getTrailersInfo = async (ids, type) => {
 						.then(keys =>
 							keys.map((key, index) => {
 								trailers.push(trailerUrl[0] + key[index] + trailerUrl[1]);
-								return trailers;
 							})
 						)
 			);
@@ -47,15 +46,14 @@ const getTrailersInfo = async (ids, type) => {
 						.then(keys =>
 							keys.map((key, index) => {
 								trailers.push(trailerUrl[0] + key[index] + trailerUrl[1]);
-								return trailers;
 							})
 						)
 			);
 		} catch (error) {
 			console.log(error);
 		}
+		console.log(trailers);
 	}
-	console.log(trailers);
 	return trailers;
 };
 
