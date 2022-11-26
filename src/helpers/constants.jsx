@@ -26,7 +26,7 @@ const settings = [
 
 const trailerUrl = [
 	'https://www.youtube.com/embed/',
-	'?autoplay=1&controls=0&modestbranding=1&showinfo=0&end=60&rel=0',
+	'?autoplay=1&controls=0&modestbranding=1&showinfo=0&rel=0',
 ];
 
 export { pages, routes, settings, trailerUrl };
