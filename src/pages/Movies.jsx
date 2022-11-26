@@ -20,7 +20,7 @@ const Movies = () => {
 
 	return (
 		<>
-			<Banner data={trailersMovies} />
+			<Banner data={trendingMovies} trailers={trailersMovies} />
 			<Carousel data={trendingMovies} />
 			<Carousel data={nowPlaying} />
 			<Carousel data={upcoming} />

@@ -19,7 +19,7 @@ const Series = () => {
 
 	return (
 		<>
-			<Banner data={trailersSeries} />
+			<Banner data={popularSeries} trailers={trailersSeries} />
 			<Carousel data={popularSeries} />
 			<Carousel data={trendingSeries} />
 			<Carousel data={topRatedSeries} />
