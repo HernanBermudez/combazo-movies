@@ -76,24 +76,22 @@ const MoviesProvider = ({ children }) => {
 		getOnAirToday()
 			.then(data => setOnAirToday(data))
 			.catch(error => console.log(error));
-	}, []);
 
-	useEffect(() => {
-		setTimeout(() => {
+		trendingAll &&
 			getTrailers(trendingAll)
 				.then(data => setTrailers(data))
 				.catch(error => console.log(error));
 
+		popularMovies &&
 			getTrailers(popularMovies)
 				.then(data => setTrailersMovies(data))
 				.catch(error => console.log(error));
 
+		popularSeries &&
 			getTrailers(popularSeries)
 				.then(data => setTrailersSeries(data))
 				.catch(error => console.log(error));
-		}, 3000);
-		return clearTimeout();
-	}, [popularSeries, popularMovies, trendingAll]);
+	}, []);
 
 	return (
 		<MoviesContext.Provider
