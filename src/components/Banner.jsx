@@ -5,20 +5,19 @@ import getBackdrops from '../services/getBackdrops';
 const Banner = ({ data, trailers }) => {
 	const backdrops = getBackdrops(data);
 	const randomContent = getRandomContent(data);
+	console.log(trailers);
 
 	return (
-		trailers && (
-			<Card sx={{ position: 'static', minWidth: 'full' }}>
-				<CardMedia
-					component='iframe'
-					src={trailers[0]}
-					title='Trailer'
-					height={600}
-					loading={'lazy'}
-				/>
-				<CardMedia component='img' alt='' image={backdrops[0]} />
-			</Card>
-		)
+		<Card sx={{ position: 'static', minWidth: 'full' }}>
+			<CardMedia component='img' alt='' image={backdrops[randomContent]} />
+			<CardMedia
+				component='iframe'
+				src={trailers[randomContent]}
+				title='Trailer'
+				height={600}
+				loading={'lazy'}
+			/>
+		</Card>
 	);
 };
 
