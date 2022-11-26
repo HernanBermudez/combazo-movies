@@ -25,6 +25,7 @@ const getTrailersInfo = async (ids, type) => {
 							})
 						)
 			);
+			return trailers;
 		} catch (error) {
 			console.log(error);
 		}
@@ -53,8 +54,8 @@ const getTrailersInfo = async (ids, type) => {
 			console.log(error);
 		}
 		console.log(trailers);
+		return trailers;
 	}
-	return trailers;
 };
 
 export default getTrailersInfo;
