@@ -1,9 +1,9 @@
 import getContentId from '../helpers/getContentId';
-import getTrailersInfo from '../helpers/getTrailersInfo';
+import getTrailersInfo from './getTrailersInfo';
 
 const getTrailers = async content => {
-	const { ids, type } = getContentId(content);
-	const trailers = await getTrailersInfo(ids, type);
+	const { id, type } = getContentId(content);
+	const trailers = await getTrailersInfo(id, type);
 	return trailers;
 };
 
