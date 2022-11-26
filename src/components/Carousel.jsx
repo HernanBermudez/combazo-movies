@@ -1,11 +1,10 @@
 import { Grid, Tabs } from '@mui/material';
 import TMDB from '../config/TMDB';
+import getPosters from '../services/getPosters';
 import CardImage from './CardImage';
 
 const Carousel = ({ data, search }) => {
-	const posters = Object.values(data).map(key => key.poster_path);
-	posters.pop();
-	const title = data.type;
+	const { posters, title } = getPosters(data);
 	return (
 		<>
 			<div className='text-xl font-semibold pl-10 pb-2 pt-10'>{title}</div>
