@@ -33,6 +33,39 @@ const MoviesProvider = ({ children }) => {
 	const [search, setSearch] = useState({});
 
 	useEffect(() => {
+		getTrendingAll()
+			.then(data => {
+				setTrendingAll(data);
+				Object.keys(trendingAll).length > 0 &&
+					Object.keys(trendingAll) !== undefined &&
+					getTrailers(trendingAll)
+						.then(trailers => setTrailers(trailers))
+						.catch(error => console.log(error));
+			})
+			.catch(error => console.log(error));
+
+		getPopularMovies()
+			.then(data => {
+				setPopularMovies(data);
+				Object.keys(popularMovies).length > 0 &&
+					Object.keys(popularMovies) !== undefined &&
+					getTrailers(popularMovies)
+						.then(trailers => setTrailersMovies(trailers))
+						.catch(error => console.log(error));
+			})
+			.catch(error => console.log(error));
+
+		getPopularSeries()
+			.then(data => {
+				setPopularSeries(data);
+				Object.keys(popularSeries).length > 0 &&
+					Object.keys(popularSeries) !== undefined &&
+					getTrailers(popularSeries)
+						.then(trailers => setTrailersSeries(trailers))
+						.catch(error => console.log(error));
+			})
+			.catch(error => console.log(error));
+
 		getTrendingMovies()
 			.then(data => setTrendingMovies(data))
 			.catch(error => console.log(error));
@@ -41,24 +74,12 @@ const MoviesProvider = ({ children }) => {
 			.then(data => setTrendingSeries(data))
 			.catch(error => console.log(error));
 
-		getTrendingAll()
-			.then(data => setTrendingAll(data))
-			.catch(error => console.log(error));
-
 		getNowPlaying()
 			.then(data => setNowPlaying(data))
 			.catch(error => console.log(error));
 
 		getUpcoming()
 			.then(data => setUpcoming(data))
-			.catch(error => console.log(error));
-
-		getPopularMovies()
-			.then(data => setPopularMovies(data))
-			.catch(error => console.log(error));
-
-		getPopularSeries()
-			.then(data => setPopularSeries(data))
 			.catch(error => console.log(error));
 
 		getTopRatedMovies()
@@ -76,21 +97,6 @@ const MoviesProvider = ({ children }) => {
 		getOnAirToday()
 			.then(data => setOnAirToday(data))
 			.catch(error => console.log(error));
-
-		trendingAll &&
-			getTrailers(trendingAll)
-				.then(trailers => setTrailers(trailers))
-				.catch(error => console.log(error));
-
-		popularMovies &&
-			getTrailers(popularMovies)
-				.then(trailers => setTrailersMovies(trailers))
-				.catch(error => console.log(error));
-
-		popularSeries &&
-			getTrailers(popularSeries)
-				.then(trailers => setTrailersSeries(trailers))
-				.catch(error => console.log(error));
 	}, []);
 
 	return (
