@@ -79,17 +79,17 @@ const MoviesProvider = ({ children }) => {
 
 		trendingAll &&
 			getTrailers(trendingAll)
-				.then(data => setTrailers(data))
+				.then(trailers => setTrailers(trailers))
 				.catch(error => console.log(error));
 
 		popularMovies &&
 			getTrailers(popularMovies)
-				.then(data => setTrailersMovies(data))
+				.then(trailers => setTrailersMovies(trailers))
 				.catch(error => console.log(error));
 
 		popularSeries &&
 			getTrailers(popularSeries)
-				.then(data => setTrailersSeries(data))
+				.then(trailers => setTrailersSeries(trailers))
 				.catch(error => console.log(error));
 	}, []);
 
