@@ -4,7 +4,7 @@ const getPopularMovies = async () => {
 	const {
 		data: { results },
 	} = await TMDB.api.get(TMDB.paths.movies.popular);
-	results.type = 'Popular movies';
+	results.type = 'Popular on Netflix';
 	return results;
 };
 

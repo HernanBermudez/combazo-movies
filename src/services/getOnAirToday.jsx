@@ -4,7 +4,7 @@ const getOnAirToday = async () => {
 	const {
 		data: { results },
 	} = await TMDB.api.get(TMDB.paths.series.on_air_today);
-	results.type = 'New on Netflix';
+	results.type = 'Releases Today';
 	return results;
 };
 

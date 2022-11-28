@@ -4,7 +4,7 @@ const getTrendingMovies = async () => {
 	const {
 		data: { results },
 	} = await TMDB.api.get(TMDB.paths.trending.trending_movie_day);
-	results.type = 'Movies';
+	results.type = 'Trending Now';
 	return results;
 };
 
