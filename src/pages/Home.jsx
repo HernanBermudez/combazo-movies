@@ -18,11 +18,12 @@ const Home = () => {
 		topRatedMovies,
 		topRatedSeries,
 		onAir,
+		trailersSeries,
 	} = useMovies();
 
 	return (
 		<>
-			<Banner data={trendingSeries} />
+			<Banner data={trendingSeries} trailers={trailersSeries} />
 			<Carousel data={trendingAll} />
 			<Carousel data={trendingSeries} />
 			<Carousel data={trendingMovies} />

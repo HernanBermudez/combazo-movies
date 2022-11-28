@@ -11,6 +11,7 @@ const Movies = () => {
 		popularMovies,
 		topRatedMovies,
 		onAir,
+		trailersMovies,
 	} = useMovies();
 
 	useEffect(() => {
@@ -19,7 +20,7 @@ const Movies = () => {
 
 	return (
 		<>
-			<Banner data={trendingMovies} />
+			<Banner data={trendingMovies} trailers={trailersMovies} />
 			<Carousel data={trendingMovies} />
 			<Carousel data={nowPlaying} />
 			<Carousel data={upcoming} />

@@ -1,11 +1,9 @@
 import { Card, CardMedia } from '@mui/material';
-import getContentId from '../helpers/getContentId';
+import { trailerUrl } from '../helpers/constants';
 import getRandomContent from '../helpers/getRandomContent';
 import getBackdrops from '../services/getBackdrops';
-import getTrailers from '../services/getTrailers';
-
-const Banner = ({ data }) => {
-	const trailers = getTrailers(data);
+const Banner = ({ data, trailers }) => {
+	console.log(trailers);
 	const backdrops = getBackdrops(data);
 	const randomContent = getRandomContent(data);
 
@@ -14,7 +12,7 @@ const Banner = ({ data }) => {
 			<CardMedia component='img' alt='' image={backdrops[randomContent]} />
 			<CardMedia
 				component='iframe'
-				src={trailers[randomContent]}
+				src={trailerUrl[0] + trailers[randomContent] + trailerUrl[1]}
 				title='Trailer'
 				height={600}
 				loading={'lazy'}
