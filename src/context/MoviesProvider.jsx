@@ -10,6 +10,7 @@ import getTrendingAll from '../services/getTrendingAll';
 import getTrendingMovies from '../services/getTrendingMovies';
 import getTrendingSeries from '../services/getTrendingSeries';
 import getUpcoming from '../services/getUpcoming';
+import getTrailers from '../services/getTrailers';
 
 const MoviesContext = createContext();
 
@@ -26,6 +27,8 @@ const MoviesProvider = ({ children }) => {
 	const [onAir, setOnAir] = useState({});
 	const [onAirToday, setOnAirToday] = useState({});
 	const [search, setSearch] = useState({});
+	const [trailersSeries, setTrailersSeries] = useState([]);
+	const [trailersMovies, setTrailersMovies] = useState([]);
 
 	useEffect(() => {
 		getTrendingAll()
@@ -47,11 +50,17 @@ const MoviesProvider = ({ children }) => {
 			.catch(error => console.log(error));
 
 		getTrendingMovies()
-			.then(data => setTrendingMovies(data))
+			.then(data => {
+				setTrendingMovies(data);
+				getTrailers(data).then(trailers => setTrailersMovies(trailers));
+			})
 			.catch(error => console.log(error));
 
 		getTrendingSeries()
-			.then(data => setTrendingSeries(data))
+			.then(data => {
+				setTrendingSeries(data);
+				getTrailers(data).then(trailers => setTrailersSeries(trailers));
+			})
 			.catch(error => console.log(error));
 
 		getNowPlaying()
@@ -77,6 +86,14 @@ const MoviesProvider = ({ children }) => {
 		getOnAirToday()
 			.then(data => setOnAirToday(data))
 			.catch(error => console.log(error));
+
+		// getTrailers(trendingSeries)
+		// 	.then(data => setTrailersSeries(data))
+		// 	.catch(error => console.log(error));
+
+		// getTrailers(trendingMovies)
+		// 	.then(data => setTrailersMovies(data))
+		// 	.catch(error => console.log(error));
 	}, []);
 
 	return (
@@ -95,6 +112,8 @@ const MoviesProvider = ({ children }) => {
 				onAirToday,
 				search,
 				setSearch,
+				trailersMovies,
+				trailersSeries,
 			}}
 		>
 			{children}
