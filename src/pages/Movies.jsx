@@ -11,7 +11,6 @@ const Movies = () => {
 		popularMovies,
 		topRatedMovies,
 		onAir,
-		trailersMovies,
 	} = useMovies();
 
 	useEffect(() => {

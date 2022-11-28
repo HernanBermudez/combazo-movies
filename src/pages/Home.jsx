@@ -18,7 +18,6 @@ const Home = () => {
 		topRatedMovies,
 		topRatedSeries,
 		onAir,
-		trailers,
 	} = useMovies();
 
 	return (

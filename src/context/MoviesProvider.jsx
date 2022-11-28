@@ -25,8 +25,6 @@ const MoviesProvider = ({ children }) => {
 	const [popularSeries, setPopularSeries] = useState({});
 	const [onAir, setOnAir] = useState({});
 	const [onAirToday, setOnAirToday] = useState({});
-	const [trailers, setTrailers] = useState([]);
-
 	const [search, setSearch] = useState({});
 
 	useEffect(() => {

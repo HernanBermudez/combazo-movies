@@ -4,14 +4,8 @@ import Carousel from '../components/Carousel';
 import useMovies from '../hooks/useMovies';
 
 const Series = () => {
-	const {
-		trendingSeries,
-		popularSeries,
-		topRatedSeries,
-		onAir,
-		onAirToday,
-		trailersSeries,
-	} = useMovies();
+	const { trendingSeries, popularSeries, topRatedSeries, onAir, onAirToday } =
+		useMovies();
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
