@@ -13,7 +13,7 @@ const Series = () => {
 
 	return (
 		<>
-			<Banner data={popularSeries} />
+			<Banner data={trendingSeries} />
 			<Carousel data={popularSeries} />
 			<Carousel data={trendingSeries} />
 			<Carousel data={topRatedSeries} />

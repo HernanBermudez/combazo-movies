@@ -22,7 +22,7 @@ const Home = () => {
 
 	return (
 		<>
-			<Banner data={trendingAll} />
+			<Banner data={trendingSeries} />
 			<Carousel data={trendingAll} />
 			<Carousel data={trendingSeries} />
 			<Carousel data={trendingMovies} />
