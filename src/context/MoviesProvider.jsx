@@ -10,7 +10,6 @@ import getTrendingAll from '../services/getTrendingAll';
 import getTrendingMovies from '../services/getTrendingMovies';
 import getTrendingSeries from '../services/getTrendingSeries';
 import getUpcoming from '../services/getUpcoming';
-import getTrailers from '../services/getTrailers';
 
 const MoviesContext = createContext();
 
@@ -27,8 +26,6 @@ const MoviesProvider = ({ children }) => {
 	const [onAir, setOnAir] = useState({});
 	const [onAirToday, setOnAirToday] = useState({});
 	const [trailers, setTrailers] = useState([]);
-	const [trailersSeries, setTrailersSeries] = useState([]);
-	const [trailersMovies, setTrailersMovies] = useState([]);
 
 	const [search, setSearch] = useState({});
 
@@ -36,33 +33,18 @@ const MoviesProvider = ({ children }) => {
 		getTrendingAll()
 			.then(data => {
 				setTrendingAll(data);
-				Object.keys(trendingAll).length > 0 &&
-					Object.keys(trendingAll) !== undefined &&
-					getTrailers(trendingAll)
-						.then(trailers => setTrailers(trailers))
-						.catch(error => console.log(error));
 			})
 			.catch(error => console.log(error));
 
 		getPopularMovies()
 			.then(data => {
 				setPopularMovies(data);
-				Object.keys(popularMovies).length > 0 &&
-					Object.keys(popularMovies) !== undefined &&
-					getTrailers(popularMovies)
-						.then(trailers => setTrailersMovies(trailers))
-						.catch(error => console.log(error));
 			})
 			.catch(error => console.log(error));
 
 		getPopularSeries()
 			.then(data => {
 				setPopularSeries(data);
-				Object.keys(popularSeries).length > 0 &&
-					Object.keys(popularSeries) !== undefined &&
-					getTrailers(popularSeries)
-						.then(trailers => setTrailersSeries(trailers))
-						.catch(error => console.log(error));
 			})
 			.catch(error => console.log(error));
 
@@ -115,9 +97,6 @@ const MoviesProvider = ({ children }) => {
 				onAirToday,
 				search,
 				setSearch,
-				trailers,
-				trailersMovies,
-				trailersSeries,
 			}}
 		>
 			{children}
