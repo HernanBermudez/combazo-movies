@@ -22,7 +22,7 @@ const getTrailers = async data => {
 
 	const trailersFiltered = trailersKey.filter(key => key !== false);
 	console.log(trailersFiltered);
-	return trailersInfo;
+	return trailersFiltered;
 };
 
 export default getTrailers;
