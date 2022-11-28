@@ -1,11 +1,13 @@
 import { Card, CardMedia } from '@mui/material';
+import getContentId from '../helpers/getContentId';
 import getRandomContent from '../helpers/getRandomContent';
 import getBackdrops from '../services/getBackdrops';
+import getTrailers from '../services/getTrailers';
 
-const Banner = ({ data, trailers }) => {
+const Banner = ({ data }) => {
+	const trailers = getTrailers(data);
 	const backdrops = getBackdrops(data);
 	const randomContent = getRandomContent(data);
-	console.log(trailers);
 
 	return (
 		<Card sx={{ position: 'static', minWidth: 'full' }}>
