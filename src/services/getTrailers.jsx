@@ -1,11 +1,8 @@
 import TMDB from '../config/TMDB';
-import { trailerUrl } from '../helpers/constants';
+import getContentId from '../helpers/getContentId';
 
 const getTrailers = async data => {
-	const ids = Object.values(data).map(id => id.id);
-	ids.pop();
-	const { media_type } = Object.values(data).find(key => key.media_type);
-
+	const { ids, media_type } = getContentId(data);
 	const trailersInfo = await Promise.all(
 		ids.map(
 			async id =>
