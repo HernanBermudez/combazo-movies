@@ -23,7 +23,7 @@ const Home = () => {
 
 	return (
 		<>
-			<Banner data={trendingAll} trailers={trailers} />
+			<Banner data={trendingAll} />
 			<Carousel data={trendingAll} />
 			<Carousel data={trendingSeries} />
 			<Carousel data={trendingMovies} />
