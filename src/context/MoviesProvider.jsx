@@ -11,6 +11,7 @@ import getTrendingMovies from '../services/getTrendingMovies';
 import getTrendingSeries from '../services/getTrendingSeries';
 import getUpcoming from '../services/getUpcoming';
 import getTrailers from '../services/getTrailers';
+import getRandomContent from '../helpers/getRandomContent';
 
 const MoviesContext = createContext();
 
@@ -29,6 +30,8 @@ const MoviesProvider = ({ children }) => {
 	const [search, setSearch] = useState({});
 	const [trailersSeries, setTrailersSeries] = useState([]);
 	const [trailersMovies, setTrailersMovies] = useState([]);
+	const [random, setRandom] = useState(0);
+	const [transition, setTransition] = useState(false);
 
 	useEffect(() => {
 		getTrendingAll()
@@ -53,6 +56,7 @@ const MoviesProvider = ({ children }) => {
 			.then(data => {
 				setTrendingMovies(data);
 				getTrailers(data).then(trailers => setTrailersMovies(trailers));
+				getRandomContent(data).then(random => setRandom(random));
 			})
 			.catch(error => console.log(error));
 
@@ -60,6 +64,7 @@ const MoviesProvider = ({ children }) => {
 			.then(data => {
 				setTrendingSeries(data);
 				getTrailers(data).then(trailers => setTrailersSeries(trailers));
+				getRandomContent(data).then(random => setRandom(random));
 			})
 			.catch(error => console.log(error));
 
@@ -114,6 +119,9 @@ const MoviesProvider = ({ children }) => {
 				setSearch,
 				trailersMovies,
 				trailersSeries,
+				random,
+				transition,
+				setTransition,
 			}}
 		>
 			{children}
