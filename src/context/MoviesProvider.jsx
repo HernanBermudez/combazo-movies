@@ -91,14 +91,6 @@ const MoviesProvider = ({ children }) => {
 		getOnAirToday()
 			.then(data => setOnAirToday(data))
 			.catch(error => console.log(error));
-
-		// getTrailers(trendingSeries)
-		// 	.then(data => setTrailersSeries(data))
-		// 	.catch(error => console.log(error));
-
-		// getTrailers(trendingMovies)
-		// 	.then(data => setTrailersMovies(data))
-		// 	.catch(error => console.log(error));
 	}, []);
 
 	return (
