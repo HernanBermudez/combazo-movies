@@ -3,8 +3,9 @@ const pages = [
 	'TV Shows',
 	'Movies',
 	'New & Popular',
-	'My List',
-	'Browse by Languages',
+	// To implement
+	// 'My List',
+	// 'Browse by Languages',
 ];
 const routes = [
 	'/',
