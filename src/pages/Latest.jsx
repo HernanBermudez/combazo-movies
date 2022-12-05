@@ -11,10 +11,10 @@ const Latest = () => {
 
 	return (
 		<>
-			<Carousel data={upcoming} />
-			<Carousel data={onAirToday} />
-			<Carousel data={onAir} />
-			<Carousel data={nowPlaying} />
+			<Carousel data={upcoming} latest='latest' />
+			<Carousel data={onAirToday} latest='latest' />
+			<Carousel data={onAir} latest='latest' />
+			<Carousel data={nowPlaying} latest='latest' />
 		</>
 	);
 };
