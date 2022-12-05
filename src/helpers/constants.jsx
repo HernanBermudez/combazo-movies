@@ -1,10 +1,10 @@
 const pages = [
-	'Inicio',
-	'Series',
-	'Peliculas',
-	'Novedades populares',
-	'Mi lista',
-	'Explora por idiomas',
+	'Home',
+	'TV Shows',
+	'Movies',
+	'New & Popular',
+	'My List',
+	'Browse by Languages',
 ];
 const routes = [
 	'/',
@@ -17,11 +17,11 @@ const routes = [
 ];
 
 const settings = [
-	'Administrar perfil',
-	'Transferir perfil',
-	'Cuenta',
-	'Centro de ayuda',
-	'Cerrar sesión en Netflix',
+	'Manage Profile',
+	'Transfer profile',
+	'Account',
+	'Help Center',
+	'Sign out of Netflix',
 ];
 
 const trailerUrl = [
